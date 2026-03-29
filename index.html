@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busz Menetrend</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<div class="card">
+    <h1>Következő busz:</h1>
+    <div id="bus-time" class="time">--:--</div>
+    <div id="bus-dest" class="dest">Betöltés...</div>
+    <button id="refresh-btn">Frissítés</button>
+</div>
+
+<div class="card">
+    <h2>Összes járat 
+        <button id="toggle-buses">▼</button>
+    </h2>
+    <div id="all-buses" class="all-buses collapsed">
+        <!-- menetrend -->
+    </div>
+</div>
+    <script src="js.js"></script>
+
+    <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+  .then(() => console.log('Service Worker regisztrálva és offline készen!'))
+  .catch(err => console.log('SW hiba:', err));
+}
+    </script>
+
+</body>
+</html>
